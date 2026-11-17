@@ -31,3 +31,6 @@ Artwork: exported PNG visually inspected at 1276 x 716. The PSD was read back to
 
 
 Artwork revision: replaced the grid and framed screenshot with a generated mineral-texture gradient and a transparent white civilian running while looking back. Revised PSD read-back confirms 13 layers and 10 editable text layers at 1276 x 716. The figure is a 3D-style render, not a mesh. Preview visually checked after export.
+
+
+Grounding/alignment revision: added a separate soft ambient/contact shadow layer under the unchanged civilian asset. The E, M and R word endings all begin at x=171. PSD read-back confirms 14 layers, 10 editable text layers and the shared x coordinate. Civilian PNG SHA-256 is unchanged: 8938D28CE2BD873BE1AF41B863DF3E2FF4C5325D66974A4791255428CA956D72.

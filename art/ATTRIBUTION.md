@@ -1,6 +1,6 @@
 # Preview sources
 
-Typography and layout reference: Georodin's DDI `Photoshop/preview.psd`, inspected locally in Photoshop. Reference canvas 1276 x 716, large stacked initials in Catesque-Medium, smaller word endings in Catesque-Light, author credit in Roboto-Light. The PIP PSD uses available Arial fonts and contains separate editable text, textured background, status badge and civilian cutout layers.
+Typography and layout reference: Georodin's DDI `Photoshop/preview.psd`, inspected locally in Photoshop. Reference canvas 1276 x 716, large stacked initials in Catesque-Medium, smaller word endings in Catesque-Light, author credit in Roboto-Light. The PIP PSD uses available Arial fonts and contains separate editable text, textured background, soft ground shadow, status badge and civilian cutout layers.
 
 `textured-gradient.png` and `running-civilian.png` were created with the built-in image generation tool on 2026-11-17. The latter has an alpha background. Prompts are recorded in [GENERATION.md](GENERATION.md). The figure is a 3D-style raster render, not a rigged or downloadable 3D mesh.
 

@@ -34,6 +34,18 @@ function text(name,value,x,y,size,color,weight='normal') {
 (async()=>{
   const texture=await loadImage(path.join(root,'art/textured-gradient.png'));
   layer('Mineral texture - graphite to emerald gradient',c=>c.drawImage(texture,0,0,W,H));
+  layer('Ground shadow - soft ambient and shoe contact',c=>{
+    function ellipseShadow(x,y,rx,ry,opacity) {
+      c.save();c.translate(x,y);c.scale(rx,ry);
+      const gradient=c.createRadialGradient(0,0,0,0,0,1);
+      gradient.addColorStop(0,`rgba(0,12,10,${opacity})`);
+      gradient.addColorStop(.4,`rgba(0,12,10,${opacity*.6})`);
+      gradient.addColorStop(1,'rgba(0,12,10,0)');
+      c.fillStyle=gradient;c.beginPath();c.arc(0,0,1,0,Math.PI*2);c.fill();c.restore();
+    }
+    ellipseShadow(1055,641,134,21,.48);
+    ellipseShadow(1101,635,64,9,.42);
+  });
   const civilian=await loadImage(path.join(root,'art/running-civilian.png'));
   const figureHeight=584,figureWidth=civilian.width*figureHeight/civilian.height;
   layer('White 3D civilian - running and looking back - alpha cutout',c=>c.drawImage(civilian,780,67,figureWidth,figureHeight));
@@ -41,7 +53,7 @@ function text(name,value,x,y,size,color,weight='normal') {
   text('P - People initial','P',70,214,160,'#73e5d4');
   text('People remainder','EOPLE',171,214,70,'#ffffff');
   text('I - Improvement initial','I',70,410,160,'#73e5d4');
-  text('Improvement remainder','MPROVEMENT',117,410,56,'#ffffff');
+  text('Improvement remainder','MPROVEMENT',171,410,56,'#ffffff');
   text('P - Project initial','P',70,606,160,'#73e5d4');
   text('Project remainder','ROJECT',171,606,70,'#ffffff');
   box('Development badge',874,24,350,34,'#e3b45e');
@@ -52,6 +64,8 @@ function text(name,value,x,y,size,color,weight='normal') {
   fs.writeFileSync(path.join(root,'Photoshop/preview.psd'),psd.writePsdBuffer({width:W,height:H,canvas:composite,children},{trimImageData:true,generateThumbnail:true}));
   const check=psd.readPsd(fs.readFileSync(path.join(root,'Photoshop/preview.psd')),{skipLayerImageData:true,skipCompositeImageData:true,skipThumbnail:true});
   const editable=check.children.filter(l=>l.text).length;
-  if(check.width!==W||check.height!==H||check.children.length!==13||editable!==10) throw new Error('PSD layer validation failed');
+  if(check.width!==W||check.height!==H||check.children.length!==14||editable!==10) throw new Error('PSD layer validation failed');
+  const wordLayers=check.children.filter(l=>['People remainder','Improvement remainder','Project remainder'].includes(l.name));
+  if(wordLayers.length!==3||wordLayers.some(l=>l.text.transform[4]!==171)) throw new Error('Word-column alignment failed');
   console.log(`Created ${W}x${H} PSD with ${check.children.length} layers and ${editable} editable text layers.`);
 })().catch(e=>{console.error(e);process.exitCode=1;});
