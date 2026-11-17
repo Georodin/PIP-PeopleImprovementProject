@@ -3,12 +3,13 @@
   "author": "Georodin",
   "appId": 5185890,
   "publishedFileId": "0",
-  "version": "0.1.0-dev",
+  "version": "0.2.0-experimental",
   "visibility": "private",
-  "runtimeIntegrated": false,
+  "runtimeIntegrated": true,
   "gameplayVerified": false,
   "workshopCodeLoadingVerified": false,
-  "status": "Development prototype. Custom native diagnostic loader verified in game; simulation bridge and gameplay still pending.",
+  "status": "Experimental local native adapter. Real evacuation observed; broader gameplay acceptance and Workshop code distribution pending.",
+  "evacuationObserved": true,
   "testedSteamBuild": "26692741",
   "localLoaderVerified": true
 }

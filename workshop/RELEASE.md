@@ -1,12 +1,12 @@
 # Workshop release preparation
 
-**Status: blocked on actual game integration. Do not publish this as a working mutator.**
+**Status: experimental local adapter works; Workshop release remains blocked on subscriber code loading and broader gameplay acceptance.**
 
-Prepared: title, author, source URL, description in BBCode, editable PSD, preview PNG, native library, automated behaviour tests and a draft packaging command. No item has been created or published on Steam.
+Prepared: title, author, source URL, description in BBCode, editable PSD, preview PNG, native runtime and launcher, automated behaviour/navigation tests, a local package and a Workshop draft packaging command. A disposable game battle recorded 298 safe arrivals. No item has been created or published on Steam.
 
 Before a playable release:
 
-- Finish and validate the game-specific simulation bridge as described in `docs/INTEGRATION.md`.
+- Complete the remaining live multi-stage and geometry acceptance cases in `docs/INTEGRATION.md`; the simulation and movement bridge is implemented.
 - Verify how that code is distributed and loaded for Workshop subscribers. The current built-in INI-mutator uploader is not proof of DLL support.
 - Run all native tests and the real-game acceptance tests on the current Steam build. Record results in `docs/VALIDATION.md`.
 - Verify save/reload, performance, and multiplayer support or explicitly limit the release to singleplayer.

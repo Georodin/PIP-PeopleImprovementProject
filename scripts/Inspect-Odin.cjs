@@ -30,7 +30,7 @@ for(let p=ti.raw;p+112<=ti.raw+ti.size;p+=8){
  try{
   if(b.readBigUInt64LE(p+104)!==1n)continue;
   const size=Number(b.readBigUInt64LE(p)),align=Number(b.readBigUInt64LE(p+8));
-  if(size<0||size>1e8||align<1||align>64||(align&(align-1)))continue;
+  if(size<0||size>1e8||align<1||align>4096||(align&(align-1)))continue;
   const name=str(b.readBigUInt64LE(p+32),b.readBigUInt64LE(p+40));
   if(!/^[A-Za-z_][A-Za-z0-9_]*(?:\([^\r\n]*\))?$/.test(name))continue;
   const base=b.readBigUInt64LE(p+48),baseRaw=raw(base,112),kind=Number(b.readBigUInt64LE(baseRaw+104));

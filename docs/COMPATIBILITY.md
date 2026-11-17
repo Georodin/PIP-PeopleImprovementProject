@@ -12,7 +12,7 @@ Inspected on 2026-11-17:
 
 The [official Steam store page](https://store.steampowered.com/app/5185890/Zombies_Arent_Real/) describes Workshop support for custom maps. The [Workshop overview](https://steamcommunity.com/workshop/about/?appid=5185890) documents subscription delivery. Neither establishes a native DLL plugin ABI.
 
-Consequently no DLL has been linked into a pretend mod folder, and no INI with invented settings has been installed. A DLL or Workshop item alone cannot activate PIP. The missing simulation bridge can be implemented through a supported interface or independent native reverse engineering, followed by real gameplay validation.
+PIP therefore uses an independently implemented native adapter with an explicit launcher. It hooks the movement dispatcher and final movement branch in process memory, validates gates using the native A* routine, and retains native wall collision checks. A disposable live battle confirmed civilians reaching an intact neighboring zone. Dropping a DLL into a folder or subscribing to a Workshop item alone does not activate it.
 
-This is a finding about the installed build and exposed configuration, not a claim that native reverse engineering is technically impossible. The custom diagnostic loader now uses explicit process attachment to load PIP.Core.dll into the verified game; this was successfully tested. No game functions are patched yet, and no game executable or decompiled source is redistributed. See NATIVE-LOADER.md.
+The full executable hash and instruction signatures are checked before hooks are installed. No executable file is patched, and no game executable or decompiled source is redistributed. This adapter supports only the exact build above. See [NATIVE-LOADER.md](NATIVE-LOADER.md).
 

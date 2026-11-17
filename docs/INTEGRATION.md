@@ -1,4 +1,4 @@
-# Proposed host bridge
+# Policy and native bridge contract
 
 `src/pip.h` defines **PIP's proposed ABI**. It is not an API present in Zombies Aren't Real. `PIP.Core.dll` exports `pip_abi_version`, `pip_reset`, and `pip_step`.
 
@@ -44,4 +44,4 @@ Use a disposable Free Play copy of a layered plan. Breach only the outer region,
 
 
 
-Native loading milestone: the custom loader now loads PIP.Core.dll into the verified game and validates static Odin type records. This does not yet provide the live world, civilian state, path queries or simulation callbacks described above. See [NATIVE-LOADER.md](NATIVE-LOADER.md).
+The implemented adapter in `runtime/` supplies this contract from the verified native build: safe-mask compartments, actual gates validated with native A*, shared walking fields, stable civilian IDs, and a movement proposal that passes through native wall/gate collision checks. State is prepared before workers run and reset on battle restart. See [NATIVE-LOADER.md](NATIVE-LOADER.md) for exact integration points and [VALIDATION.md](VALIDATION.md) for observed coverage. Live multi-stage retreat, arbitrary geometry, saves and crowd-scale acceptance remain to be completed.

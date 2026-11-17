@@ -1,16 +1,16 @@
 [h1]PIP - People Improvement Project[/h1]
 By Georodin
 
-[b]DEVELOPMENT DRAFT - NOT A PLAYABLE RELEASE[/b]
-The civilian evacuation engine is implemented and tested outside the game. Integration into Zombies Aren't Real is still pending; subscribing to an item containing these files would not activate it.
+[b]EXPERIMENTAL LOCAL MOD - WORKSHOP DISTRIBUTION DRAFT[/b]
+The native adapter now controls civilian evacuation in the game. Local installation requires the separate PIP launcher and the exact supported Steam build. Subscribing to an item containing these files would not activate it. No playable Workshop item has been published.
 
-[h2]Planned first feature: layered evacuation[/h2]
+[h2]First feature: layered evacuation[/h2]
 People learn a contingency when they enter a safe region. If that region is breached, they try to reach a directly adjacent, unbreached region through a valid walking route. Upon arrival, they learn their new region's contingency so a layered base can retreat again.
 
 Blocked gates and unreachable regions are excluded. Civilians keep the game's normal panic behaviour if no valid safe neighbour remains. PIP is intended to grow into a collection of civilian quality-of-life improvements.
 
 [h2]Development status[/h2]
-The current game exposes configuration mutators. This feature needs region breach events, real pathfinding and civilian steering through a game-specific native bridge. A custom native diagnostic loader now loads the policy DLL in the game, but the simulation bridge and playable behaviour are not implemented yet. No Unity or BepInEx dependency is claimed.
+PIP reads real safe compartments and gates, uses the game's A* to validate crossings, and feeds movement through native collision checks. A disposable live battle recorded 298 civilians reaching an intact inner zone. Native navigation tests cover learning the next fallback and retreating again. Full live multi-stage acceptance, crowd-scale performance and Workshop code loading remain unverified. Local singleplayer only; requires the .NET 9 x64 runtime and Steam build 26692741. The game executable file is unchanged. Unity and BepInEx are not dependencies.
 
 [url=https://github.com/Georodin/PIP-PeopleImprovementProject]Source and development status[/url]
 
