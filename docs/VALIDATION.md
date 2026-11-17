@@ -28,3 +28,6 @@ The draft package command rebuilt and reran the tests. The normal Workshop packa
 Artwork: exported PNG visually inspected at 1276 x 716. The PSD was read back to confirm its dimensions, 20 layers, and 12 editable text layers. Photoshop's scripting API could read the original DDI template, but failed while creating new text layers, so the final PSD was authored with ag-psd and canvas. The DDI source file was not modified. First-open text-layer refresh may be requested by Photoshop.
 
 **Not validated:** actual game loading, AI control inside the game, game pathfinding, saves, performance at full game scale, co-op, or Workshop loading. No gameplay bridge exists yet. The policy tests supply synthetic path results and region snapshots. There is no claim that this prototype changes gameplay.
+
+
+Artwork revision: replaced the grid and framed screenshot with a generated mineral-texture gradient and a transparent white civilian running while looking back. Revised PSD read-back confirms 13 layers and 10 editable text layers at 1276 x 716. The figure is a 3D-style render, not a mesh. Preview visually checked after export.

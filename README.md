@@ -47,5 +47,5 @@ This creates a clearly marked **development package** under `dist/`; it does not
 
 See [the integration contract](docs/INTEGRATION.md), [installed-build findings](docs/COMPATIBILITY.md), and [Workshop release checklist](workshop/RELEASE.md). No BepInEx, Harmony, Unity injection or blind executable patch is included. Future people-behaviour modules can be added beside `src/pip.c` under the same PIP name.
 
-The name follows Georodin's [ACI](https://github.com/Georodin/ACI-AbilityCooldownIndicator) and [DDI](https://github.com/Georodin/DDI-DeepDrill-Indicator) acronym style. The new cover follows the DDI PSD's three-line typography and author credit, using original graphics and the supplied game screenshot; it does not reuse the separately licensed mining artwork or RimWorld expansion marks.
+The name follows Georodin's [ACI](https://github.com/Georodin/ACI-AbilityCooldownIndicator) and [DDI](https://github.com/Georodin/DDI-DeepDrill-Indicator) acronym style. The new cover follows the DDI PSD's three-line typography and author credit, using a textured gradient and a generated white 3D-style civilian cutout; it does not reuse the separately licensed mining artwork or RimWorld expansion marks.
 

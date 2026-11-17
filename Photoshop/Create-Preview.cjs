@@ -32,16 +32,11 @@ function text(name,value,x,y,size,color,weight='normal') {
   });
 }
 (async()=>{
-  box('Background - deep slate',0,0,W,H,'#101e23');
-  box('Right panel - teal',620,0,656,H,'#153b40');
-  layer('Subtle grid',c=>{
-    c.strokeStyle='#244249';c.lineWidth=.6;
-    for(let x=0;x<W;x+=80){c.beginPath();c.moveTo(x,0);c.lineTo(x,H);c.stroke();}
-    for(let y=0;y<H;y+=80){c.beginPath();c.moveTo(0,y);c.lineTo(W,y);c.stroke();}
-  });
-  box('Photo frame',636,78,588,572,'#5bded0');
-  const image=await loadImage(path.join(root,'art/layered-base.png'));
-  layer('Supplied layered base - game screenshot',c=>c.drawImage(image,644,86,572,556));
+  const texture=await loadImage(path.join(root,'art/textured-gradient.png'));
+  layer('Mineral texture - graphite to emerald gradient',c=>c.drawImage(texture,0,0,W,H));
+  const civilian=await loadImage(path.join(root,'art/running-civilian.png'));
+  const figureHeight=584,figureWidth=civilian.width*figureHeight/civilian.height;
+  layer('White 3D civilian - running and looking back - alpha cutout',c=>c.drawImage(civilian,780,67,figureWidth,figureHeight));
   text('Series label','CIVILIAN QUALITY OF LIFE',76,49,18,'#8db6b9');
   text('P - People initial','P',70,214,160,'#73e5d4');
   text('People remainder','EOPLE',171,214,70,'#ffffff');
@@ -51,15 +46,12 @@ function text(name,value,x,y,size,color,weight='normal') {
   text('Project remainder','ROJECT',171,606,70,'#ffffff');
   box('Development badge',874,24,350,34,'#e3b45e');
   text('Status badge','DEVELOPMENT PROTOTYPE',892,48,18,'#14292e','bold');
-  box('Feature caption background',644,556,572,86,'#101e23');
-  text('Feature caption','LAYERED EVACUATION',669,591,30,'#ffffff','bold');
-  text('Feature status','FIRST PLANNED IN-GAME FEATURE',669,620,18,'#73e5d4');
-  box('Author rule',76,659,1148,1,'#376167');
   text('Author credit','BY GEORODIN',76,698,24,'#ffffff');
-  text('Engine status','NATIVE POLICY ENGINE  /  GAME BRIDGE PENDING',644,696,18,'#8db6b9');
+  text('First feature','FIRST FEATURE: LAYERED EVACUATION',762,696,18,'#c4e6df');
   fs.writeFileSync(path.join(root,'art/preview.png'),composite.toBuffer('image/png'));
   fs.writeFileSync(path.join(root,'Photoshop/preview.psd'),psd.writePsdBuffer({width:W,height:H,canvas:composite,children},{trimImageData:true,generateThumbnail:true}));
   const check=psd.readPsd(fs.readFileSync(path.join(root,'Photoshop/preview.psd')),{skipLayerImageData:true,skipCompositeImageData:true,skipThumbnail:true});
-  if(check.width!==W||check.height!==H||check.children.filter(l=>l.text).length!==12) throw new Error('PSD layer validation failed');
-  console.log(`Created ${W}x${H} PSD with ${check.children.length} layers and 12 editable text layers.`);
+  const editable=check.children.filter(l=>l.text).length;
+  if(check.width!==W||check.height!==H||check.children.length!==13||editable!==10) throw new Error('PSD layer validation failed');
+  console.log(`Created ${W}x${H} PSD with ${check.children.length} layers and ${editable} editable text layers.`);
 })().catch(e=>{console.error(e);process.exitCode=1;});
