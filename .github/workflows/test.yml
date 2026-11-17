@@ -11,3 +11,7 @@ jobs:
       - name: Compile and test actual native DLL
         shell: pwsh
         run: ./scripts/Build.ps1 -Clang 'C:\Program Files\LLVM\bin\clang.exe' -Linker 'C:\Program Files\LLVM\bin\ld.lld.exe'
+
+      - name: Build and self-test native loader (no game required)
+        shell: pwsh
+        run: ./scripts/Build-Loader.ps1 -Clang 'C:\Program Files\LLVM\bin\clang.exe' -Linker 'C:\Program Files\LLVM\bin\ld.lld.exe'

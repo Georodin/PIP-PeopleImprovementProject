@@ -22,7 +22,7 @@ $dll = Join-Path $build 'PIP.Core.dll'
 if ($LASTEXITCODE) { throw 'C compilation failed.' }
 & $Linker -flavor link /dll /noentry /nodefaultlib /machine:x64 "/out:$dll" $obj
 if ($LASTEXITCODE) { throw 'DLL linking failed.' }
-Write-Output "Built $dll (native x64 policy engine; no game loader)."
+Write-Output "Built $dll (native x64 policy engine; Build-Loader.ps1 builds the diagnostic loader)."
 if (-not $SkipTests) {
     & dotnet run --project (Join-Path $repo 'tests\Pip.Tests.csproj') --configuration Release -- $dll
     if ($LASTEXITCODE) { throw 'Behaviour tests failed.' }

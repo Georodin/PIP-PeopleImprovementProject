@@ -12,7 +12,7 @@ Inspected on 2026-11-17:
 
 The [official Steam store page](https://store.steampowered.com/app/5185890/Zombies_Arent_Real/) describes Workshop support for custom maps. The [Workshop overview](https://steamcommunity.com/workshop/about/?appid=5185890) documents subscription delivery. Neither establishes a native DLL plugin ABI.
 
-Consequently no DLL has been linked into a pretend mod folder, and no INI with invented settings has been installed. A DLL or Workshop item alone cannot activate PIP. A developer-supported source integration or code-plugin interface is required, followed by real gameplay validation.
+Consequently no DLL has been linked into a pretend mod folder, and no INI with invented settings has been installed. A DLL or Workshop item alone cannot activate PIP. The missing simulation bridge can be implemented through a supported interface or independent native reverse engineering, followed by real gameplay validation.
 
-This is a finding about the installed build and exposed configuration, not a claim that native reverse engineering is technically impossible. No executable patch, process injection, game asset redistribution, or game-source redistribution is part of this repository.
+This is a finding about the installed build and exposed configuration, not a claim that native reverse engineering is technically impossible. The custom diagnostic loader now uses explicit process attachment to load PIP.Core.dll into the verified game; this was successfully tested. No game functions are patched yet, and no game executable or decompiled source is redistributed. See NATIVE-LOADER.md.
 

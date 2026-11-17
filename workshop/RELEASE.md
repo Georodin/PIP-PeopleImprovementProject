@@ -6,7 +6,7 @@ Prepared: title, author, source URL, description in BBCode, editable PSD, previe
 
 Before a playable release:
 
-- Obtain and implement a supported game bridge as described in `docs/INTEGRATION.md`.
+- Finish and validate the game-specific simulation bridge as described in `docs/INTEGRATION.md`.
 - Verify how that code is distributed and loaded for Workshop subscribers. The current built-in INI-mutator uploader is not proof of DLL support.
 - Run all native tests and the real-game acceptance tests on the current Steam build. Record results in `docs/VALIDATION.md`.
 - Verify save/reload, performance, and multiplayer support or explicitly limit the release to singleplayer.

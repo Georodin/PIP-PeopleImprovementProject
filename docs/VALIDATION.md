@@ -34,3 +34,6 @@ Artwork revision: replaced the grid and framed screenshot with a generated miner
 
 
 Grounding/alignment revision: added a separate soft ambient/contact shadow layer under the unchanged civilian asset. The E, M and R word endings all begin at x=171. PSD read-back confirms 14 layers, 10 editable text layers and the shared x coordinate. Civilian PNG SHA-256 is unchanged: 8938D28CE2BD873BE1AF41B863DF3E2FF4C5325D66974A4791255428CA956D72.
+
+
+Native loader milestone: built with zero warnings/errors; self-test passed null argument, ABI size, unsupported-host and core ABI-handshake checks. Then the launcher verified the installed game SHA-256, attached the diagnostic bootstrap to the running game, passed actual in-memory Gate/Safe_Cells/Home_Field checks, and loaded PIP.Core.dll with C ABI version 1. The game remained responding. No simulation hooks were installed; evacuation and Workshop code loading remain unverified. Runtime log: build/PIP.Loader.log (local only).

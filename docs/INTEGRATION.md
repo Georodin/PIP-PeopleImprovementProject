@@ -42,3 +42,6 @@ Keep civilian iteration, portal IDs, path-query results and revisions determinis
 
 Use a disposable Free Play copy of a layered plan. Breach only the outer region, watch civilians cross an actual working gate into the adjacent blue region, breach that second region, and verify another retreat. Repeat with overlapping polygons, blocked gates, no surviving neighbour, gate destruction mid-route, arrival at an unexpected safe region, save/reload, pause/speed changes, and a large crowd. Verify no position jumps, wall clipping, commandeered police/militia, or panic suppression when no route exists.
 
+
+
+Native loading milestone: the custom loader now loads PIP.Core.dll into the verified game and validates static Odin type records. This does not yet provide the live world, civilian state, path queries or simulation callbacks described above. See [NATIVE-LOADER.md](NATIVE-LOADER.md).

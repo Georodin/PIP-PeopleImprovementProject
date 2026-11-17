@@ -2,7 +2,7 @@
 
 ![PIP preview](art/preview.png)
 
-**Development prototype for Zombies Aren't Real. The evacuation policy is implemented and tested; it is NOT active in the game.** The installed game supports INI setting mutators, not the native host bridge this feature needs. Dropping this project's DLL into the game folder does not load it. This repository is the starting point for a broader civilian quality-of-life mod.
+**Development prototype for Zombies Aren't Real. The evacuation policy is implemented and tested; it is NOT active in the game.** The installed game supports INI setting mutators. A custom diagnostic loader now successfully loads PIP.Core.dll into the game, but the simulation hooks this feature needs are still missing. Dropping a DLL into the game folder alone does not load it. This repository is the starting point for a broader civilian quality-of-life mod.
 
 ## First feature: layered evacuation
 
@@ -16,7 +16,8 @@ An intact overlap region remains safe even if an outer region is breached. Close
 | --- | --- |
 | Native x64 policy engine (`PIP.Core.dll`) | Implemented |
 | Layered retreat, arrival knowledge, blocked routes and replanning | Tested through the DLL's C ABI |
-| Game state access, breach events, walking paths and steering | **Missing: no supported code-plugin interface found** |
+| Custom native loader bootstrap | **Verified in the running game**; diagnostic only |
+| Game state access, breach events, walking paths and steering | Still missing; requires the reverse-engineered game bridge |
 | In-game playtest and real save/reload integration | Pending the game bridge |
 | Editable Photoshop design and preview | In `Photoshop/` and `art/` |
 | Steam Workshop metadata, description and release checks | Prepared as a draft; upload blocked |
@@ -45,7 +46,7 @@ This creates a clearly marked **development package** under `dist/`; it does not
 
 ## Integration and release
 
-See [the integration contract](docs/INTEGRATION.md), [installed-build findings](docs/COMPATIBILITY.md), and [Workshop release checklist](workshop/RELEASE.md). No BepInEx, Harmony, Unity injection or blind executable patch is included. Future people-behaviour modules can be added beside `src/pip.c` under the same PIP name.
+See [the integration contract](docs/INTEGRATION.md), [installed-build findings](docs/COMPATIBILITY.md), and [Workshop release checklist](workshop/RELEASE.md). The [native loader prototype](docs/NATIVE-LOADER.md) uses explicit process attachment and verifies this exact game build; it installs no simulation hooks yet. No BepInEx, Harmony or executable-file patch is included. Future people-behaviour modules can be added beside `src/pip.c` under the same PIP name.
 
 The name follows Georodin's [ACI](https://github.com/Georodin/ACI-AbilityCooldownIndicator) and [DDI](https://github.com/Georodin/DDI-DeepDrill-Indicator) acronym style. The new cover follows the DDI PSD's three-line typography and author credit, using a textured gradient and a generated white 3D-style civilian cutout; it does not reuse the separately licensed mining artwork or RimWorld expansion marks.
 
