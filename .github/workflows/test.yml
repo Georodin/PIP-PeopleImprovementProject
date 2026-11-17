@@ -1,0 +1,13 @@
+name: Native policy tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      - name: Compile and test actual native DLL
+        shell: pwsh
+        run: ./scripts/Build.ps1 -Clang 'C:\Program Files\LLVM\bin\clang.exe' -Linker 'C:\Program Files\LLVM\bin\ld.lld.exe'

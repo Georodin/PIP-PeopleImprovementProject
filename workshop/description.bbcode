@@ -1,0 +1,16 @@
+[h1]PIP - People Improvement Project[/h1]
+By Georodin
+
+[b]DEVELOPMENT DRAFT - NOT A PLAYABLE RELEASE[/b]
+The civilian evacuation engine is implemented and tested outside the game. Integration into Zombies Aren't Real is still pending; subscribing to an item containing these files would not activate it.
+
+[h2]Planned first feature: layered evacuation[/h2]
+People learn a contingency when they enter a safe region. If that region is breached, they try to reach a directly adjacent, unbreached region through a valid walking route. Upon arrival, they learn their new region's contingency so a layered base can retreat again.
+
+Blocked gates and unreachable regions are excluded. Civilians keep the game's normal panic behaviour if no valid safe neighbour remains. PIP is intended to grow into a collection of civilian quality-of-life improvements.
+
+[h2]Development status[/h2]
+The current game exposes configuration mutators. This feature needs region breach events, real pathfinding and civilian steering through a supported code interface or source integration. No such bridge is included yet. No Unity or BepInEx dependency is claimed.
+
+[url=https://github.com/Georodin/PIP-PeopleImprovementProject]Source and development status[/url]
+

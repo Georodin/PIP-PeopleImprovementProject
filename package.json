@@ -1,0 +1,8 @@
+{
+  "name": "pip-people-improvement-project-art",
+  "private": true,
+  "version": "0.1.0-dev",
+  "description": "Optional layered PSD preview authoring tools; not game dependencies",
+  "scripts": { "preview": "node Photoshop/Create-Preview.cjs" },
+  "devDependencies": { "@napi-rs/canvas": "0.1.100", "ag-psd": "34.2.1" }
+}

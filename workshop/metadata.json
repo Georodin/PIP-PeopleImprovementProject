@@ -1,0 +1,13 @@
+{
+  "title": "PIP - People Improvement Project",
+  "author": "Georodin",
+  "appId": 5185890,
+  "publishedFileId": "0",
+  "version": "0.1.0-dev",
+  "visibility": "private",
+  "runtimeIntegrated": false,
+  "gameplayVerified": false,
+  "workshopCodeLoadingVerified": false,
+  "status": "Development prototype. Native policy engine only; no game bridge.",
+  "testedSteamBuild": "26692741"
+}

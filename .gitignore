@@ -1,0 +1,10 @@
+build/
+dist/
+.tools/
+artifacts/
+*.user
+*.tmp
+**/obj/
+**/bin/
+node_modules/
+
